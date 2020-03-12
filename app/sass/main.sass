@@ -1,0 +1,1040 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button 
+  	-webkit-appearance: none
+    margin: 0
+
+input[type=number]
+	-moz-appearance: textfield
+
+/*!Main styles*/
+
+html
+	@media screen and (max-width: 1200px)
+		font-size: 16px
+	@media screen and (max-width: 991px)
+		font-size: 15px
+	@media screen and (max-width: 767px)
+		font-size: 15px
+	@media screen and (max-width: 480px)
+		font-size: 14px
+	@media screen and (max-width: 320px)
+		font-size: 12px
+
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+	
+// Custom Sass / Remove before use
+
+
+.container
+	max-width: 1090px
+	padding:
+		right: $gutter/2
+		left: $gutter/2
+	margin:
+		left: auto
+		right: auto
+
+.wrapper
+	background-color: $wrapper_bg_color
+	min-height: 100%
+    display: flex
+    flex-direction: column
+    width: 100%
+    overflow-x: hidden
+
+.page 
+    flex-grow: 1
+    background-color: $page-bg
+
+
+.header
+	background-color: $wrapper_bg_color
+	position: relative
+	//@media screen and (max-width: 991px)
+	&--open-menu
+		background-color: #BFDDF7
+		transition: background-color 0.3s linear
+
+	&__logo
+		padding-top: 3.2em
+		padding-bottom: 1.9em
+		@media screen and (max-width: 991px)
+			margin: auto
+
+	&__contacts
+		padding-top: 2.67em
+		@media screen and (max-width: 991px)
+			display: none
+
+	&__place
+		padding-left: 1.3em
+
+	&__metrosign
+		width: 26px
+		height: 18px
+		padding-bottom: 1px
+
+	&__metrotext
+		color: $black_text
+		font-size: 1.25rem
+		font-weight: 700
+		vertical-align: middle
+	&__maplink
+		padding: 0.38em 0.63em
+		margin-left: 1.57em
+		border-radius: 5px
+		background-color: $maplink_bg
+		color: $maplink_color
+		font-size: 0.88rem
+
+	&__phone
+		color: $black_text
+		font-family: Roboto
+		font-size: 2rem
+		font-weight: 400
+
+	&__menu-icon
+		display: none
+		width: 4em
+		height: 3em
+		background-color: transparent
+		padding: 0.5em
+		align-self: center
+
+		@media screen and (max-width: 991px)
+			display: block
+
+		& span
+			display: block
+			width: 100%
+			height: 4px
+			background-color: $menu_color
+			margin-bottom: 0.5em
+
+
+.container
+
+.header__row
+	display: flex
+	justify-content: space-between
+
+
+.logo
+	
+	&__img
+		width: 52px
+		height: 54px
+		@media screen and (max-width: 991px)
+			transform: scale(1.2)
+		@media screen and (max-width: 480px)
+			transform: scale(0.8)
+	&__text
+		width: 164px
+		height: 31px
+		margin-left: 0.75em
+		@media screen and (max-width: 991px)
+			transform: scale(1.2)
+			margin-left: 1.5em
+		@media screen and (max-width: 480px)
+			transform: scale(0.8)
+			margin-left: -1em
+
+.menu
+	background-color: $wrapper_bg_color	
+
+	@media screen and (max-width: 991px)		
+		position: absolute
+		z-index: 100
+		width: 100%
+		left: -100%
+		height: 100vh
+		border-top: 2px solid $wrapper_bg_color	
+		background-color: #BFDDF7
+		transition: 0.3s ease-out
+
+		&--open
+			left: 0
+
+	
+	&__inner
+		display: flex
+		justify-content: flex-start
+		list-style: none
+		padding: 0
+		margin: 0
+
+		@media screen and (max-width: 991px)
+			flex-flow: column nowrap
+			align-items: center
+
+	&__link
+		color: $menu_color
+		font-size: 0.88rem
+		font-weight: 700
+		text-transform: uppercase
+		padding: 0 1em
+		margin-left: 3.75em
+
+		@media screen and (max-width: 991px)
+			font-size: 1.1rem
+			margin: 0
+			padding: 0
+			color: $white_color
+
+
+	&__link:visited
+		color: $menu_color
+		text-decoration: none
+		@media screen and (max-width: 991px)
+			color: $white_color
+
+	&__link:hover
+		color: $black_text
+		text-decoration: none
+
+	&__link:active
+		color: $menu_color
+		text-decoration: none	
+	
+	&__item:first-child .menu__link
+		padding-left: 0
+		margin-left: 0
+
+	&__item
+		@media screen and (max-width: 991px)
+			margin: 1em 0
+
+	&__item--active .menu__link
+			color: $black_text
+
+
+
+
+
+.order:after
+	display: block
+	content: ""
+	width: 100%
+	height: 26px
+	position: absolute
+	bottom: 0
+	background-color: $page-bg
+	transform-origin: right bottom
+	transform: skewY(-0.7deg)
+
+.order
+	width: 100%
+	position: relative
+	background: url("../img/_src/order-bg.webp") no-repeat
+	background-size: cover
+
+	&__row
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+		padding-top: 6.25em
+		padding-bottom: 4.38em
+		margin-left: -1.25em /* 20/16 */
+		@media screen and (max-width: 767px)
+			flex-direction: column
+			align-items: center
+
+		&>*
+			margin-left: 1.25em
+
+
+
+	&__form
+		flex: 1 1 auto
+		@media screen and (max-width: 1200px)
+			padding-left: 2.5em
+		@media screen and (max-width: 991px)
+			padding-left: 1em
+		@media screen and (max-width: 767px)
+			padding: 0
+			margin: 0
+			margin-bottom: 2em
+
+.container
+
+.quick-form::before
+	display: block
+	content: ""
+	position: absolute
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+	width: 28em
+	height: 28em
+	border-radius: 50%
+	border: 0.56em solid rgba(255,255,255, 0.4)
+	z-index: -1
+	@media screen and (max-width: 480px)
+		width: 23em
+		height: 23em
+	
+.quick-form
+	padding: 6.12em 0
+	position: relative
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	width: 26em
+	height: 26em
+	border-radius: 50%
+	background-color: rgba(255,255,255, 0.4)
+	z-index: 1
+	@media screen and (max-width: 480px)
+		width: 21em
+		height: 21em
+		margin-left: 1em
+	
+	&__title
+		color: $h3_color
+		font-size: 1.5rem
+		font-weight: 700
+		@media screen and (max-width: 480px)
+			font-size: 1.2rem
+			margin-top: 1em
+
+	&__phonenumber
+		color: $label-text_color
+		font-size: 1.12rem
+		font-weight: 500
+		padding-top: 0.8em
+		@media screen and (max-width: 480px)
+			padding-top: 0.5em
+
+	&__input
+		display: block
+		box-sizing: border-box
+		width: 15em
+		height: 3.25em
+		font-size: 1.10rem
+		font-weight: 500
+		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04)
+		border-radius: 5px
+		border: 1px solid #cecece
+		background-color: $white_color
+		padding: 0 0.8em		
+		color: $black_text
+		
+	&__input::placeholder
+		opacity: 0.2
+
+	&__submit
+		border-radius: 2em
+		background-color: #24bc4f
+		margin-top: 1.94em
+		padding: 0.75em 2em
+		border: none
+		color: $white_color
+		font-size: 1.25rem
+		font-weight: 700
+		display: block
+		margin-left: auto
+		margin-right: auto
+		@media screen and (max-width: 480px)
+			font-size: 1.1em
+
+.order__feachures
+	flex: 3 1 auto
+	display: flex
+	flex-direction: column
+	justify-content: center
+	@media screen and (max-width: 767px)
+		flex: 1 1 auto
+
+.feachures
+	max-width: 26.5em
+	display: flex
+	position: relative
+	flex-direction: column
+	justify-content: center
+	border-radius: 11px
+	background-color: rgba(255, 255, 255, 0.6)
+	opacity: 0.8
+	padding: 3.12em 0 2.5em 2.8em
+	@media screen and (max-width: 767px)
+		padding-right: 3em
+
+	&__item
+		display: flex
+		justify-content: flex-start
+		margin-bottom: 1.0em
+
+	&__icon
+		width: 3.55em
+		height: 3.55em
+		display: flex
+		justify-content: center
+		align-items: flex-start
+		background-color: $white_color
+		border-radius: 50%
+
+	&__img
+		width: 3.3em
+		height: 3.3em
+
+	&__text
+		color: $title_color
+		font-size: 1.125rem
+		font-weight: 600
+		margin-left: 0.8em
+		line-height: 1.3em
+
+	&__stamp-small
+		width: 11.1875em /* 179/16 */
+		height: 12.4375em /* 199/16 */
+		position: absolute
+		top: -4.12em
+		left: 17.6em
+		@media screen and (max-width: 991px)
+			display: none
+
+
+	&__stamp-big
+		width: 18.5em /* 296/16 */
+		height: 17.875em /* 286/16 */
+		position: absolute
+		top: 5.875em /* 94/16 */
+		left: 20.88em /* 350/16 */
+		@media screen and (max-width: 1200px)
+			display: none
+
+.prices
+	padding-top: 1em
+	padding-bottom: 8.1875em /* 131/16 */
+
+	&__title
+		font-weight: 800
+		font-size: 1.5rem /* 24/16 */
+		line-height: 1.75em /* 28/16 */
+		text-align: center
+		color: $title_color
+		margin-bottom: 1em
+
+	&__seal
+		margin-bottom: 1.3125em /* 21/16 */
+
+	&__stamp
+
+.seal-price
+	max-width: 52.3125em /* 837/16 */
+	background-color: $white_color
+	border-radius: 0.6875em /* 11/16 */
+	padding: 0.56em 1.62em 1em 2#C85C47F7.62em /* 25/16 */
+	margin-left: auto
+	margin-right: auto
+
+	&__row
+		display: flex
+		justify-content: space-around
+		flex-wrap: wrap
+		margin-top: 2.0em
+		margin-left: -0.5em
+		@media screen and (max-width: 991px)
+			justify-content: center
+		@media screen and (max-width: 480px)
+			margin-top: 1em
+
+		&>*
+			margin-left: 0.5em		
+
+	&__oneday
+		flex: 1 1 auto
+		@media screen and (max-width: 480px)
+			width: 100%
+		& .seal-price__row
+			@media screen and (max-width: 480px)
+				flex-wrap: nowrap
+
+	&__items
+		max-width: 100%
+
+	&__title
+		position: relative
+		margin-bottom: 2.375em /* 38/16 */
+
+	&__img
+		position: absolute
+		top: -50px
+		max-width: 6em /* 109/16 */
+		@media screen and (max-width: 480px)
+			display: none
+
+	&__titletext
+		display: inline-block
+		vertical-align: bottom
+		text-align: left
+		font-weight: 900
+		font-size: 1.5rem /* 24/16 */
+		color: $title_color
+		width: 100%
+		padding-left: 4.0em
+		@media screen and (max-width: 480px)
+			padding-left: 0
+
+	&__text
+		font-weight: 500
+		font-size: 1.125rem /* 18/16 */
+		line-height: 1.3125em /* 21/16 */
+		color: $price-text
+		margin-bottom: 1.2em
+		max-width: 14em
+		white-space: nowrap
+		overflow: hidden
+		@media screen and (max-width: 480px)
+			font-size: 0.9rem
+
+		&:after
+			display: inline-block
+			content: "\00a0_____________________________________________________"
+			color: #B7CFDC
+			font-size: 1.3rem
+
+	&__prices
+		padding-right: 1.4em
+		@media screen and (max-width: 480px)
+			padding-right: 0
+			white-space: nowrap
+
+
+	&__duration
+		display: block
+		margin-bottom: 4.3em
+		font-weight: 900
+		font-size: 0.875rem /* 14/16 */
+		line-height: 1em
+		color: $price-duration
+		@media screen and (max-width: 480px)
+			margin-top: 1em
+			margin-bottom: 3.8em
+
+	&__price
+		margin-bottom: 0.53em
+		font-weight: 500
+		font-size: 1.375rem /* 22/16 */
+		line-height: 1.625em /* 26/16 */
+		color: $price-value
+		@media screen and (max-width: 480px)
+			font-size: 1.0rem
+			margin-bottom: 0.72em
+
+	&__onehour
+		flex: 1 1 auto
+		padding-left: 1em
+		@media screen and (max-width: 480px)
+			padding-left: 0
+		& .seal-price__row
+			@media screen and (max-width: 480px)
+				flex-wrap: nowrap
+
+		& .seal-price__prices
+			padding-top: 4.5em
+			@media screen and (max-width: 480px)
+				padding-top: 4.4em
+
+.seal-price__oneday>.seal-price__row
+	border-right: 2px solid blue
+	border-color: #C4C4C4
+	@media screen and (max-width: 991px)
+		border: none
+
+.quick-order
+	position: relative
+	background: url('../img/_src/quick-order_bg.jpg') no-repeat
+	background-size: cover
+	height: 43vw
+	@media screen and (max-width: 991px)
+		display: flex
+		align-items: center
+	@media screen and (max-width: 767px)
+		height: auto
+		padding-top: 1em
+
+	& .container
+		@media screen and (max-width: 991px)
+			display: flex
+			flex-flow: row nowrap
+			justify-content: space-around
+			align-items: center
+		@media screen and (max-width: 767px)
+			flex-direction: column
+
+	&__bg
+		position: absolute
+		top: 58%
+		left: 50%
+		transform: translate(-50%, -50%)
+		z-index: 5
+		@media screen and (max-width: 991px)
+			display: none
+
+
+	&__bg-img
+		width: 100%
+
+	&__block
+		padding: 1.0em
+		background-color: $white_color
+		box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2)
+		border-radius: 0.75em /* 12/16 */
+		width: 22% //19.875em /* 318/16 */
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		align-items: center
+		position: absolute
+		z-index: 3
+		@media screen and (max-width: 991px)
+			position: static
+			width: 30%
+		@media screen and (max-width: 767px)
+			width: 80%
+			margin-bottom: 1em
+			position: static
+
+		&:nth-child(2)
+			left: 52%
+			top: 26%
+			@media screen and (max-width: 1200px)
+				top: 8%
+
+		&:nth-child(3)
+			left: 19%
+			top: 54%
+			@media screen and (max-width: 1200px)
+				left: 13%
+				top: 45%
+
+		&:nth-child(3) .quick-order__price
+			width: 100%
+			margin-bottom: 1em
+			@media screen and (max-width: 767px)
+				width: auto
+			
+		&:nth-child(4)
+			right: 10%
+			top: 61%
+			@media screen and (max-width: 1200px)
+				top: 55%
+
+
+	&__title
+		font-weight: 500
+		font-size: 1.5rem /* 24/16 */
+		line-height: 1.4375em /* 23/16 */
+		color: $quick-order-title
+		margin-bottom: 0.6em
+		width: 100%
+
+	&__price
+		font-weight: 500
+		font-size: 0.875rem /* 14/16 */
+		line-height: 16px
+		color: $quick-order-price
+		line-height: 1.5em
+		margin: 0
+
+	&__btn
+		background: $quick-order-btn
+		border: none
+		border-radius: 3px
+		font-weight: 500
+		font-size: 0.9375rem /* 15/16 */
+		color: $white_color
+		padding: 0.375em 1em /* 6/16 */
+
+.online
+	width: 100vw
+	background-color: $page-bg
+	padding-top: 1em
+	padding-bottom: 23.375em /* 374/16 */
+
+	&__title
+		font-weight: 800
+		font-size: 1.5rem /* 24/16 */
+		line-height: 1.75em /* 28/16 */
+		text-align: center
+		color: $title_color
+		margin-bottom: 1em
+
+	&__row
+		display: flex
+		flex-flow: row nowrap
+		margin-left: -1.25em /* 20/16 */
+		@media screen and (max-width: 991px)
+			flex-wrap: wrap
+			flex-direction: column-reverse
+
+		&>*
+			margin-left: 1.25em
+			margin-bottom: 1.25em
+
+	&__result
+		position: sticky
+		top: 0px
+		flex: 0 0 20%
+		align-self: flex-start
+		height: auto
+		z-index: 2
+		@media screen and (max-width: 991px)
+			width: 35%
+			align-self: center
+		@media screen and (max-width: 767px)
+			width: 70%
+
+	&__form
+		flex: 1 1 auto
+
+
+.container
+
+.result-order
+	background-color: $white_color
+	box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.04)
+	border-radius: 0.6875em /* 11/16 */
+	padding: 1.56em 1.31em 0.0em 1.31em /* 25/16 */ /* 10/16 */ /* 21/16 */
+
+	&__title
+		font-size: 1.125rem /* 18/16 */
+		line-height: 1.3125em /* 21/16 */
+		color: $quick-order-price
+		margin-bottom: 1.5em
+
+	&__spec
+		font-size: 1.125rem /* 18/16 */
+		line-height: 0.6em /* 23/16 */
+		color: $h3_color
+
+	&__desc, &__asc
+		margin-left: 0.3em
+		color: $h3_color
+		width: 1em
+		height: 1em
+		display: inline-block
+		background: #EDEFEF
+		border-radius: 4px
+		text-align: center
+		font-size: 1rem /* 14/16 */
+		line-height: 0.9em
+		cursor: pointer
+		@media screen and (max-width: 991px)
+			width: 2em
+			height: 2em
+			line-height: 1.8em
+
+	&__amount
+		font-size: 1.125rem /* 18/16 */
+		line-height: 0.6em /* 23/16 */
+		color: $h3_color
+		margin-left: 0.3em
+
+	&__asc
+
+	&__sum-title
+		margin-top: 1.5625em /* 25/16 */
+		font-size: 1.125rem /* 18/16 */
+		line-height: 1.3125em /* 21/16 */
+		color: $quick-order-price
+		margin-bottom: 0
+
+	&__sum-amount
+		font-size: 2.5rem /* 40/16 */
+		text-align: center
+		color: $price-value
+
+.form
+	
+	&__view
+
+.stamp-view
+	background-color: $white_color
+	box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.04)
+	border-radius: 0.6875em /* 11/16 */
+	padding: 2.375em 3.375em 2.8125em 3.375em /* 38/16 */ /* 54/16 */ /* 45/16 */ /* 54/16 */
+	
+	&__title
+		font-size: 1.5rem /* 24/16 */
+		color: $h3_color
+
+	&__row
+		display: flex
+		justify-content: flex-start
+		flex-flow: row wrap
+		margin-left: -0.5em
+		@media screen and (max-width: 480px)
+			justify-content: center
+
+	&__seal, &__stamp, &__facsimile
+		margin-left: 1em
+		flex: 0 0 auto
+		margin-bottom: 1em
+
+.radio-input
+	width: 13.375em 
+	height: 13.375em 
+	background: #FDFDFD
+	border: 1px solid #E2E2E2
+	box-sizing: border-box
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.07)
+	border-radius: 0.6875em /* 11/16 */
+	position: relative
+	display: flex
+	flex-flow: row nowrap
+	justify-content: flex-start
+	align-items: flex-end
+	@media screen and (max-width: 1200px)
+		width: 12.375em 
+		height: 12.375em 
+	@media screen and (max-width: 767px)
+		width: 10.375em 
+		height: 10.375em 
+	
+
+	&__img
+		width: 80%
+		position: absolute
+		top: 45%
+		left: 50%
+		transform: translate(-50%, -50%)
+		object-fit: contain
+		z-index: 1
+		@media screen and (max-width: 480px)
+			width: 70%
+		
+	&__input
+		opacity: 0
+
+	&__label
+		z-index: 2
+		cursor: pointer
+
+
+	&__label::before
+		content: ""
+		display: inline-block
+		width: 22px
+		height: 22px
+		background-color: transparent
+		border: 4px solid #D4D4D4
+		border-radius: 50%
+		z-index: 2
+		margin-right: 0.3em
+		position: relative
+		top: 4px
+
+	&__input:checked ~ &__label::before
+		background-color: $title_color
+
+	&__help
+		position: absolute
+		display: block
+		width: 1.9375em /* 31/16 */
+		height: 1.9375em /* 31/16 */
+		background: #FDFDFD
+		border: 1px solid #E2E2E2
+		box-sizing: border-box
+		box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.07)
+		border-radius: 50%
+		top: 5%
+		right: 5%
+		text-align: center
+		line-height: 1.9375em /* 31/16 */
+		font-size: 1.0rem
+		font-weight: 500
+		cursor: pointer
+		@media screen and (max-width: 480px)
+			width: 1.4em /* 31/16 */
+			height: 1.4em /* 31/16 */
+			line-height: 1.4em
+
+	&--small
+		height: 2.8125em /* 45/16 */
+		width: auto
+		padding-right: 1.5em
+		background: #F8F8F8
+		border-radius: 0.5em /* 8/16 */
+		box-shadow: none
+		border: none
+		margin-bottom: 1em
+
+.form__type
+	margin-top: 1.5625em /* 25/16 */
+
+.bigform
+	position: relative
+	z-index: 3
+	background-color: $white_color
+	box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.04)
+	border-radius: 0.6875em /* 11/16 */
+	padding: 2.375em 3.375em 2.8125em 3.375em /* 38/16 */ /* 54/16 */ /* 45/16 */ /* 54/16 */
+
+	&__title
+		font-size: 1.5rem /* 24/16 */
+		color: $h3_color
+		margin-top: 1em
+
+	&__row
+		display: flex
+		flex-flow: row wrap
+		margin-left: -1.25em /* 20/16 */
+		@media screen and (max-width: 480px)
+			flex-direction: column
+			align-items: center
+
+		&>*
+			margin-left: 1.25em
+			margin-bottom: 1.25em
+
+	&__number
+		margin-bottom: 2em
+
+.number-input
+	width: 8.4375em /* 135/16 */
+	height: 2.8125em /* 45/16 */
+	background: #F8F8F8
+	border-radius: 8px
+	display: flex
+	flex-flow: row nowrap
+	justify-content: center
+	align-items: center
+	@media screen and (max-width: 480px)
+		margin: 0 auto
+
+	&__input
+		border: none
+		width: 3.25em
+		text-align: center
+		background: #F8F8F8
+		color: #1B1B1B
+
+	&__down, &__up
+		width: 1.4375em /* 23/16 */
+		height: 1.4375em /* 23/16 */
+		border-radius: 50%
+		background-color: #D4D4D4
+		color: #686868
+		text-align: center
+		line-height: 1.375em
+		font-weight: 700
+		cursor: pointer
+	
+
+
+	&__down
+		line-height: 1.6em
+.bigform
+	
+	
+	&__orgdata
+
+	&__submit
+		display: inline-block
+		background: $btn_color
+		border-radius: 2px
+		border: none
+		font-weight: 900
+		font-size: 1.1rem /* 18/16 */
+		line-height: 1.3125em /* 21/16 */
+		text-align: center
+		color: #FFFFFF
+		padding: 14px 32px 14px 32px
+		@media screen and (max-width: 767px)
+			margin-bottom: 1em
+
+
+	&__remark
+		display: inline-block
+		margin-left: 4.375em /* 70/16 */
+		font-size: 1.125rem /* 18/16 */
+		line-height: 1.3125em /* 21/16 */
+		text-align: center
+		color: #898989
+		@media screen and (max-width: 1200px)
+			margin-left: 2em
+		@media screen and (max-width: 480px)
+			margin-left: 0
+
+
+
+.text-input
+
+	&__label
+		font-size: 1.5rem /* 24/16 */
+		color: $h3_color
+		display: block
+
+	&__input
+		background: #FCFCFC
+		border: 1px solid #D0D0D0
+		box-sizing: border-box
+		border-radius: 8px
+		font-size: 1.125rem /* 18/16 */
+		line-height: 21px
+		color: #1B1B1B
+		padding: 0.40em 1.0em /* 12/16 */ /* 22/16 */
+		width: 100%
+		
+		&::placeholder
+			color: #919191
+
+.footer
+	position: relative
+	background-color: white
+
+	&__logo
+		position: relative
+		width: 32.25em /* 516/16 */
+		height: 8.125em /* 130/16 */
+		margin-bottom: 1em
+		z-index: 3
+		@media screen and (max-width: 991px)
+			left: 50%
+			transform: translateX(-50%)
+		@media screen and (max-width: 767px)
+			width: 80%
+
+	&__svg1
+		position: absolute
+		width: 100%
+		bottom: 2em
+		z-index: 1
+		left: 0
+
+
+.footer .menu
+	@media screen and (max-width: 1200px)
+		padding-left: 9.375em /* 150/16 */
+		z-index: 3
+
+	@media screen and (max-width: 991px)
+		display: none
